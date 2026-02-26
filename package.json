@@ -1,0 +1,12 @@
+{
+  "name": "the-daily-slop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:backend": "npx tsx watch backend/src/index.ts",
+    "dev:frontend": "cd frontend && npx vite",
+    "build:frontend": "cd frontend && npx vite build",
+    "migrate": "npx tsx scripts/migrate.ts",
+    "seed": "npx tsx scripts/seed.ts"
+  }
+}
