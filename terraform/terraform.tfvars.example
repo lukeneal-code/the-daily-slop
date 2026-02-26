@@ -1,0 +1,5 @@
+project_id        = "my-gcp-project-id"
+region            = "us-central1"
+zone              = "us-central1-a"
+anthropic_api_key = "sk-ant-..."
+openai_api_key    = "sk-..."
