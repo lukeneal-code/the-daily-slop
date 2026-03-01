@@ -28,12 +28,19 @@ resource "google_project_service" "compute" {
   disable_on_destroy = false
 }
 
+resource "google_project_service" "iam" {
+  service            = "iam.googleapis.com"
+  disable_on_destroy = false
+}
+
 # -------------------------------------------------------
 # Service account for the VM
 # -------------------------------------------------------
 resource "google_service_account" "daily_slop" {
   account_id   = "daily-slop-vm"
   display_name = "Daily Slop VM service account"
+
+  depends_on = [google_project_service.iam]
 }
 
 # -------------------------------------------------------
@@ -90,6 +97,8 @@ resource "google_secret_manager_secret_iam_member" "openai_accessor" {
 resource "google_compute_address" "daily_slop" {
   name   = "daily-slop-ip"
   region = var.region
+
+  depends_on = [google_project_service.compute]
 }
 
 # -------------------------------------------------------
@@ -106,6 +115,8 @@ resource "google_compute_firewall" "allow_http" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["daily-slop"]
+
+  depends_on = [google_project_service.compute]
 }
 
 # -------------------------------------------------------
@@ -122,6 +133,8 @@ resource "google_compute_firewall" "allow_ssh" {
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["daily-slop"]
+
+  depends_on = [google_project_service.compute]
 }
 
 # -------------------------------------------------------
@@ -161,6 +174,7 @@ resource "google_compute_instance" "daily_slop" {
   }
 
   depends_on = [
+    google_project_service.compute,
     google_secret_manager_secret_version.anthropic_api_key,
     google_secret_manager_secret_version.openai_api_key,
   ]
