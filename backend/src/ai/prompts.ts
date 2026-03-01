@@ -11,9 +11,7 @@ export function buildSatirePrompt(
     ? 'This is the LEAD STORY. Write 3-4 substantial paragraphs.'
     : 'This is a SIDEBAR STORY. Write 2-3 shorter paragraphs.';
 
-  const imageStyle = slot === 'headline'
-    ? 'a dramatic tabloid-style newspaper photograph'
-    : 'a black-and-white pen-and-ink editorial cartoon in the style of a British satirical magazine';
+  const imageStyle = 'a Charles Addams-style 1950s newspaper cartoon — elegant black and white ink drawing with darkly humorous, macabre overtones';
 
   return `You are a writer for "The Daily Slop", a satirical British newspaper in the style of The Daily Mash and Private Eye. Your tone is darkly witty, deadpan, absurdist, and quintessentially British. You mock the powerful, the pompous, and the mundane with equal relish.
 
