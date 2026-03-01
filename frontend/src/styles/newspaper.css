@@ -3,7 +3,7 @@
    ================================ */
 
 :root {
-  --font-headline: 'Playfair Display', 'Georgia', serif;
+  --font-headline: 'Oswald', 'Arial Narrow', sans-serif;
   --font-body: 'Lora', 'Times New Roman', serif;
   --font-masthead: 'UnifrakturMaguntia', 'Old English Text MT', serif;
 
@@ -78,7 +78,7 @@
 
 .masthead-title {
   font-family: var(--font-masthead);
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 400;
   letter-spacing: 0.02em;
   line-height: 1;
