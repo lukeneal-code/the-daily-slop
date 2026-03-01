@@ -12,9 +12,7 @@ export async function generateImage(
   publishDate: string,
   filename: string
 ): Promise<string> {
-  const stylePrefix = slot === 'headline'
-    ? 'Dramatic tabloid newspaper photograph, photojournalistic style, vivid and eye-catching: '
-    : 'Black and white pen-and-ink editorial cartoon, crosshatching style, British satirical magazine illustration: ';
+  const stylePrefix = 'Charles Addams-style 1950s newspaper cartoon, elegant black and white ink illustration, darkly humorous, macabre wit, detailed crosshatching, New Yorker magazine aesthetic: ';
 
   const fullPrompt = `${stylePrefix}${imageDescription}. No text, words, letters, or captions in the image.`;
 
